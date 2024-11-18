@@ -1,0 +1,92 @@
+.searchPage{
+   padding: 2rem;
+   @include flex(row,flex-start,stretch,2rem);min-height: calc(100vh - 8.5vh);
+   border: 1px solid red;
+
+>aside{
+   min-width: 20rem;
+   padding: 2rem;
+   @include flex(column,flex-start,center,2rem);
+}
+> main{
+   padding: 0rem 2rem;
+   // width: 100%;
+   width: calc(100% - 20rem);
+   @include flex(column,flex-start,flex-start,2rem);
+
+   .productCard {
+      width: 18.5rem;
+      height: 15rem;
+      // padding: 1rem;
+      flex: none;
+      border: 1px solid grey;
+      @include flex(column, flex-start, center, 10px);
+      position: relative;
+      background-color: white;
+     
+      &:hover > div {
+        opacity: 1;
+      }
+      img {
+         margin-bottom: 5px;
+        max-width: 100%; /* Ensures images are responsive */
+        height: auto; /* Maintains aspect ratio */
+        display: block; /* Removes bottom space in inline images */
+      //   margin: 0 auto; /* Centers images */
+        
+        border-radius: 8px; /* Adds rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        // width: 100%;
+        // @include square(calc(18rem - 3rem));
+        // object-fit: cover;
+        // margin: 1rem;
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+        border: 1px solid #ddd; /* Light border around product images */
+        padding: 5px; 
+      }
+      span {
+        
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+  
+      > div {
+        opacity: 0;
+        width:100%;
+        position: absolute;
+        @include square(100%);
+        top: 0;
+        left: 0;
+        background-color: #0000006b;
+        @include flex;
+        button,
+        a {
+          @include flex;
+          @include square(3rem);
+          border-radius: 100%;
+          border: none;
+          background-color: green;
+          cursor: pointer;
+          color: red;
+          font-size: 1.1rem;
+          transition: all 0.3s;
+          &:hover {
+            rotate: 90deg;
+          }
+        }
+      }
+    }
+    .productList{
+      @include flex(row, flex-start, flex-start, 1rem);
+      flex-wrap: wrap;
+      
+    }
+   > article{
+      width: 100%;
+      @include flex(row,center,space-between,1rem);
+      // height: 26.6vh;
+      align-items:end ;
+
+   }
+}
+}

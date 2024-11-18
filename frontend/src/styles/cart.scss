@@ -1,0 +1,162 @@
+// .cartPage {
+//   padding: 2rem 4rem;
+//   display: grid;
+//   grid-template-columns: 1fr 0.4fr;
+// position: absolute;
+//   // Adapts similar to 70% and 30%
+//   gap: 2rem; // Gutter space between main and aside
+//   height: calc(100vh - 4rem);
+
+// > main  {
+// >div{
+//   width: 100%;
+//   display: flex;
+//   flex-direction:column ;
+//   gap: 10px;
+// }
+// }
+// > aside{
+//   top: 0;
+//   position: sticky;
+//   z-index: 1000;
+//   height: fit-content;
+// }
+
+// }
+// .cartItem{
+
+//   border: 1px solid grey;
+//   @include flex(row,space-around,center,1rem);
+//   padding: 2rem,4rem;
+
+//   >div{
+//     @include flex;
+//     align-items: center;
+//     justify-content: center;
+
+//   }
+// }
+
+.cartPage {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  padding: 2rem 4rem;
+  height: calc(100vh - 4rem);
+overflow: hidden;
+  > main {
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > h1 {
+      @include heading(2px);
+      text-align: center;
+    }
+  }
+
+  > aside {
+    padding: 4rem;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    row-gap: 1.5rem;
+
+    > input {
+      padding: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.28);
+      outline: none;
+      border-radius: 5px;
+      margin-top: 2rem;
+    }
+
+    > p {
+      font-size: 1.1rem;
+    }
+
+    > a {
+      background-color: red;
+      padding: 1rem;
+      text-decoration: none;
+      color: black;
+      @include flex;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 5px;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    > span {
+      margin-top: -1rem;
+      display: flex;
+      align-items: center;
+      > code {
+        font-weight: 900;
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+.cartItem {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 3rem;
+
+  > img {
+    @include square(10rem);
+    object-fit: contain;
+  }
+
+  > article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.25rem;
+
+    a {
+      font-size: 1.2rem;
+      color: white;
+      &:hover {
+        color: red;
+      }
+    }
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  > div {
+    margin-left: auto;
+    display: flex;
+
+    button {
+      border: none;
+      @include square(2rem);
+      border-radius: 5px;
+      display: flex;
+      cursor: pointer;
+      font-size: 1.2rem;
+      &:hover {
+        background-color: white;
+        color: red;
+      }
+    }
+  }
+
+  > button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.2rem;
+    &:hover {
+      color: red;
+    }
+  }
+}
